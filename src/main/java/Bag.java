@@ -13,10 +13,10 @@ public abstract class Bag {
      *       - an int named capacity
      *       - an array of Strings named contents
      */
-    private String color;
-    private int numberOfContents;
-    private int capacity;
-    private String[] contents;
+    String color;
+    int numberOfContents;
+    int capacity;
+    String[] contents;
 
 
 
@@ -29,7 +29,7 @@ public abstract class Bag {
      * be empty (e.g. numberOfContents is 0 and an empty String array for
      * its contents.)
      */
-    public Bag(String color){
+    public Bag(String color, int capacity){
         this.color = color;
         this.capacity = 0;
     }
@@ -47,7 +47,6 @@ public abstract class Bag {
     }
     public int getNumberOfContents(){
         return this.numberOfContents;
-
     }
     public int getCapacity(){
         return this.capacity;
@@ -60,8 +59,8 @@ public abstract class Bag {
      * TODO: Create a setter function called setColor which sets the
      *       color of this bag to the given color.
      */
-    public void setColor(String color){
-        this.color = color;
+    public void setColor(String new_color){
+        this.color = new_color;
     }
 
 
@@ -79,21 +78,21 @@ public abstract class Bag {
      *       and false otherwise.
      */
     public boolean addItem(String new_item){
-//        if(this.numberOfContents < this.capacity){
-//            this.contents.append(new_item);
-//            this.numberOfContents = this.numberOfContents + 1;
-//            return True;
-//        }
-//        return False;
-//
-        if (this.numberOfContents >= this.capacity){
-            return False;
-        }
-        else{
-            this.contents.append(new_item);
-            this.numberOfContents ++;
-            return True;
-        }
+       if (this.numberOfContents < this.capacity){
+           this.contents[numberOfContents] = new_item;
+           this.numberOfContents ++;
+           return true;
+       }
+       return false;
+
+//         if (this.numberOfContents >= this.capacity){
+//             return False;
+//         }
+//         else{
+//             this.contents.append(new_item);
+//             this.numberOfContents ++;
+//             return True;
+//         }
     }
 
 
@@ -132,7 +131,7 @@ public abstract class Bag {
      * @param n the amount to increase this Bag's capacity by
      */
     public void increaseCapacity(int n) {
-        this.capacity += n;
+        this.capacity = this.capacity + n;
 
     }
 
@@ -145,8 +144,7 @@ public abstract class Bag {
      */
     @Override
     public String toString() {
-        return this.color + " Bag (" + this.numberOfContents + " / " +
-                this.capacity + ")";
+        return this.color + " Bag (" + this.numberOfContents + " / " + this.capacity + ")";
     }
 
     /*
