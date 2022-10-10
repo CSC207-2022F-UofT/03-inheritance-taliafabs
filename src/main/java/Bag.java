@@ -31,7 +31,9 @@ public abstract class Bag {
      */
     public Bag(String color, int capacity){
         this.color = color;
-        this.capacity = 0;
+        this.capacity = capacity;
+        this.numberOfContents = 0;
+        this.contents = new String[capacity];
     }
 
 
@@ -122,16 +124,13 @@ public abstract class Bag {
     }
 
 
-
-
-
     /**
      * Increase this bag's capacity by n.
      *
      * @param n the amount to increase this Bag's capacity by
      */
     public void increaseCapacity(int n) {
-        this.capacity = this.capacity + n;
+        this.capacity += n;
 
     }
 
