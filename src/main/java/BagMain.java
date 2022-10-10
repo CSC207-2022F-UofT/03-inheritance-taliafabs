@@ -19,7 +19,7 @@ class BagMain {
         for (Bag bag : bags){
             bag.enhance();
             // but, if it's a HandBag and a double enhance one too, then enhance it twice
-            if (bag instanceof HandBag && double_enhance_handbags == true){
+            if (bag instanceof HandBag && double_enhance_handbags){
                 bag.enhance();
             }
         }
